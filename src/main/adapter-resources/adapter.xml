@@ -18,8 +18,8 @@
 	<property name="account" displayName="Cloudant account" defaultValue=""  />
 	<property name="key" displayName="Cloudant key" defaultValue=""  />
 	<property name="password" displayName="Cloudant password" defaultValue=""  />
-	<property name="beaconsDBName" displayName="Beacons DB name" defaultValue="beaconsDBName"/>
-	<property name="triggersDBName" displayName="triggers DB name" defaultValue="triggersDBName"/>
-	<property name="associationsDBName" displayName="Beacon-Trigger Associations DB name" defaultValue="associationsDBName"/>
+	<property name="beaconsDBName" displayName="Beacons DB name" defaultValue="beacons"/>
+	<property name="triggersDBName" displayName="triggers DB name" defaultValue="triggers"/>
+	<property name="associationsDBName" displayName="Beacon-Trigger Associations DB name" defaultValue="beacon-trigger-associations"/>
 
 </mfp:adapter>

@@ -43,7 +43,7 @@ public class MobileFirstBeaconsAdapterApplication extends MFPJAXRSApplication{
 		if (!cloudantAccount.isEmpty() && !cloudantKey.isEmpty() && !cloudantPassword.isEmpty()){
 			try {
 				CloudantClient cloudantClient = ClientBuilder.account(cloudantAccount).username(cloudantKey)
-						.password(cloudantPassword).build();
+						.password(cloudantPassword).disableSSLAuthentication().build();
 				if (!beaconsDBName.isEmpty()) {
 					beaconsDB = cloudantClient.database(beaconsDBName, false);
 				}
