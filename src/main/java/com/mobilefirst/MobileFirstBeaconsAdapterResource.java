@@ -195,7 +195,8 @@ public class MobileFirstBeaconsAdapterResource {
 	@Path("/beacons")
 	@Produces("application/json")
 	public Response getBeacons() throws Exception {
-		List<Beacon> entries = getBeaconsDB().view("_all_docs").includeDocs(true).query(Beacon.class);
+		List<Beacon> entries = getBeaconsDB().getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
+				.getDocsAs(Beacon.class);
 		return Response.ok(entries).build();
 	}
 
@@ -203,7 +204,8 @@ public class MobileFirstBeaconsAdapterResource {
 	@Path("/triggers")
 	@Produces("application/json")
 	public Response getTriggers() throws Exception {
-		List<Trigger> entries = getTriggersDB().view("_all_docs").includeDocs(true).query(Trigger.class);
+		List<Trigger> entries = getTriggersDB().getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
+				.getDocsAs(Trigger.class);
 		return Response.ok(entries).build();
 	}
 
@@ -211,7 +213,8 @@ public class MobileFirstBeaconsAdapterResource {
 	@Path("/associations")
 	@Produces("application/json")
 	public Response getBeaconTriggerAssociations() throws Exception {
-		List<BeaconTriggerAssociation> entries = getAssociationsDB().view("_all_docs").includeDocs(true).query(BeaconTriggerAssociation.class);
+		List<BeaconTriggerAssociation> entries = getAssociationsDB().getAllDocsRequestBuilder().includeDocs(true)
+				.build().getResponse().getDocsAs(BeaconTriggerAssociation.class);
 		return Response.ok(entries).build();
 	}
 
@@ -219,10 +222,12 @@ public class MobileFirstBeaconsAdapterResource {
 	@Path("/getBeaconsTriggersAndAssociations")
 	@Produces("application/json")
 	public Response getBeaconsTriggersAndAssociations() throws Exception {
-		List<Beacon> beacons = getBeaconsDB().view("_all_docs").includeDocs(true).query(Beacon.class);
-		List<Trigger> triggers = getTriggersDB().view("_all_docs").includeDocs(true).query(Trigger.class);
-		List<BeaconTriggerAssociation> associations = getAssociationsDB().view("_all_docs").includeDocs(true)
-				.query(BeaconTriggerAssociation.class);
+		List<Beacon> beacons = getBeaconsDB().getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
+				.getDocsAs(Beacon.class);
+		List<Trigger> triggers = getTriggersDB().getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
+				.getDocsAs(Trigger.class);
+		List<BeaconTriggerAssociation> associations = getAssociationsDB().getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
+				.getDocsAs(BeaconTriggerAssociation.class);
 		JSONObject response = new JSONObject();
 		response.put("beacons", beacons);
 		response.put("triggers", triggers);

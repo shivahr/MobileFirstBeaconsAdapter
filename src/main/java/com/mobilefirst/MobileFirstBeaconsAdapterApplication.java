@@ -11,10 +11,10 @@ import java.util.logging.Logger;
 
 import javax.ws.rs.core.Context;
 
-import org.lightcouch.CouchDbException;
-
+import com.cloudant.client.api.ClientBuilder;
 import com.cloudant.client.api.CloudantClient;
 import com.cloudant.client.api.Database;
+import com.cloudant.client.org.lightcouch.CouchDbException;
 import com.ibm.mfp.adapter.api.ConfigurationAPI;
 import com.ibm.mfp.adapter.api.MFPJAXRSApplication;
 
@@ -42,7 +42,8 @@ public class MobileFirstBeaconsAdapterApplication extends MFPJAXRSApplication{
 
 		if (!cloudantAccount.isEmpty() && !cloudantKey.isEmpty() && !cloudantPassword.isEmpty()){
 			try {
-				CloudantClient cloudantClient = new CloudantClient(cloudantAccount,cloudantKey,cloudantPassword);
+				CloudantClient cloudantClient = ClientBuilder.account(cloudantAccount).username(cloudantKey)
+						.password(cloudantPassword).build();
 				if (!beaconsDBName.isEmpty()) {
 					beaconsDB = cloudantClient.database(beaconsDBName, false);
 				}
