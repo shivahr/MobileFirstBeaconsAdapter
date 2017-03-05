@@ -26,7 +26,6 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import com.cloudant.client.api.Database;
-import com.ibm.json.java.JSONObject;
 import com.ibm.mfp.adapter.api.AdaptersAPI;
 import com.ibm.mfp.adapter.api.ConfigurationAPI;
 import com.ibm.mfp.adapter.api.OAuthSecurity;
@@ -222,17 +221,14 @@ public class MobileFirstBeaconsAdapterResource {
 	@Path("/getBeaconsTriggersAndAssociations")
 	@Produces("application/json")
 	public Response getBeaconsTriggersAndAssociations() throws Exception {
-		List<Beacon> beacons = getBeaconsDB().getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
+		BeaconsTriggersAndAssociations beaconsTriggersAndAssociations = new BeaconsTriggersAndAssociations();
+		beaconsTriggersAndAssociations.beacons = getBeaconsDB().getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
 				.getDocsAs(Beacon.class);
-		List<Trigger> triggers = getTriggersDB().getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
+		beaconsTriggersAndAssociations.triggers = getTriggersDB().getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
 				.getDocsAs(Trigger.class);
-		List<BeaconTriggerAssociation> associations = getAssociationsDB().getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
+		beaconsTriggersAndAssociations.beaconTriggerAssociations = getAssociationsDB().getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
 				.getDocsAs(BeaconTriggerAssociation.class);
-		JSONObject response = new JSONObject();
-		response.put("beacons", beacons);
-		response.put("triggers", triggers);
-		response.put("beaconTriggerAssociations", associations);
-		return Response.ok(response).build();
+		return Response.ok(beaconsTriggersAndAssociations).build();
 	}
 
 }
