@@ -26,6 +26,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import com.cloudant.client.api.Database;
+import com.ibm.json.java.JSONObject;
 import com.ibm.mfp.adapter.api.AdaptersAPI;
 import com.ibm.mfp.adapter.api.ConfigurationAPI;
 import com.ibm.mfp.adapter.api.OAuthSecurity;
@@ -37,7 +38,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 @Api(value = "Sample Adapter Resource")
-@Path("/resource")
+@Path("/")
 public class MobileFirstBeaconsAdapterResource {
 	/*
 	 * For more info on JAX-RS see
@@ -214,5 +215,19 @@ public class MobileFirstBeaconsAdapterResource {
 		return Response.ok(entries).build();
 	}
 
+	@GET
+	@Path("/getBeaconsTriggersAndAssociations")
+	@Produces("application/json")
+	public Response getBeaconsTriggersAndAssociations() throws Exception {
+		List<Beacon> beacons = getBeaconsDB().view("_all_docs").includeDocs(true).query(Beacon.class);
+		List<Trigger> triggers = getTriggersDB().view("_all_docs").includeDocs(true).query(Trigger.class);
+		List<BeaconTriggerAssociation> associations = getAssociationsDB().view("_all_docs").includeDocs(true)
+				.query(BeaconTriggerAssociation.class);
+		JSONObject response = new JSONObject();
+		response.put("beacons", beacons);
+		response.put("triggers", triggers);
+		response.put("beaconTriggerAssociations", associations);
+		return Response.ok(response).build();
+	}
 
 }
