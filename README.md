@@ -10,25 +10,61 @@ Create Cloudant
 * Click on Create Database
 * Name it beacons
 
-* Click on + icon
-* Add following data corresponding to beacon-1
+* Click on + icon and select New Doc
+* Add following data corresponding to beacon-1 after _id 
 ```
-  "uuid": "F75D6DF0-9B95-9EF1-A1BA-AE2765DE0987",
+  , "uuid": "F75D6DF0-9B95-9EF1-A1BA-AE2765DE0987",
   "major": 57388,
   "minor": 50057,
   "customData": {
    "branchName": "Indiranagar, Bangalore"
   }
 ```
+* Change UUID, major and minor numbers to correspond to your beacon
+* Click on Create document
 
 * Click on + icon
-* Add following data corresponding to beacon-2
+* Add following data corresponding to beacon-2 after _id
 ```
-  "uuid": "F75D6DF0-9B95-9EF1-A1BA-AE2765DE0987",
+  , "uuid": "F75D6DF0-9B95-9EF1-A1BA-AE2765DE0987",
   "major": 56179,
   "minor": 406,
   "customData": {
    "branchName": "Koramangala, Bangalore"
    }
 ```
-  
+* Change UUID, major and minor numbers to correspond to your beacon
+* Click on Create document
+
+
+
+* Click on Databases
+* Click on Create Database
+* Name it triggers
+
+* Click on + icon and select New Doc
+* Add following data corresponding to trigger-1 after _id 
+```
+  , "triggerName": "entryIntoBranch",
+  "triggerType": "Enter",
+  "proximityState": "Near",
+  "actionPayload": {
+   "alert": "Welcome to $branchName branch of IMF Bank"
+  }
+```
+* Change triggerName, triggerType, proximityState and alert to suit your needs
+* Click on Create document
+
+* Click on + icon
+* Add following data corresponding to trigger-2 after _id
+```
+  , "triggerName": "exitFromBranch",
+  "triggerType": "Exit",
+  "proximityState": "Far",
+  "actionPayload": {
+   "alert": "Thank you for visiting our $branchName branch. Have a nice day!"
+  }
+```
+* Change triggerName, triggerType, proximityState and alert to suit your needs
+* Click on Create document
+
