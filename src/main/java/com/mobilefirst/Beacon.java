@@ -9,4 +9,8 @@ public class Beacon {
 	public double latitude;
 	public double longitude;
 	public Map<String, String> customData = null;
+
+	public void normalizeUuid() {
+		uuid = uuid.toLowerCase();
+	}
 }

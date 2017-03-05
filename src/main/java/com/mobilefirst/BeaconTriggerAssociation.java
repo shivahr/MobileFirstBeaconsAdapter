@@ -5,4 +5,8 @@ public class BeaconTriggerAssociation {
 	public int major;
 	public int minor;
 	public String triggerName;
+
+	public void normalizeUuid() {
+		uuid = uuid.toLowerCase();
+	}
 }

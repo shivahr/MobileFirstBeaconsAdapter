@@ -194,9 +194,12 @@ public class MobileFirstBeaconsAdapterResource {
 	@Path("/beacons")
 	@Produces("application/json")
 	public Response getBeacons() throws Exception {
-		List<Beacon> entries = getBeaconsDB().getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
+		List<Beacon> beacons = getBeaconsDB().getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
 				.getDocsAs(Beacon.class);
-		return Response.ok(entries).build();
+		for (Beacon beacon : beacons) {
+			beacon.normalizeUuid();
+		}
+		return Response.ok(beacons).build();
 	}
 
 	@GET
@@ -212,9 +215,12 @@ public class MobileFirstBeaconsAdapterResource {
 	@Path("/associations")
 	@Produces("application/json")
 	public Response getBeaconTriggerAssociations() throws Exception {
-		List<BeaconTriggerAssociation> entries = getAssociationsDB().getAllDocsRequestBuilder().includeDocs(true)
+		List<BeaconTriggerAssociation> beaconTriggerAssociations = getAssociationsDB().getAllDocsRequestBuilder().includeDocs(true)
 				.build().getResponse().getDocsAs(BeaconTriggerAssociation.class);
-		return Response.ok(entries).build();
+		for (BeaconTriggerAssociation beaconTriggerAssociation : beaconTriggerAssociations) {
+			beaconTriggerAssociation.normalizeUuid();
+		}
+		return Response.ok(beaconTriggerAssociations).build();
 	}
 
 	@GET
@@ -224,10 +230,16 @@ public class MobileFirstBeaconsAdapterResource {
 		BeaconsTriggersAndAssociations beaconsTriggersAndAssociations = new BeaconsTriggersAndAssociations();
 		beaconsTriggersAndAssociations.beacons = getBeaconsDB().getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
 				.getDocsAs(Beacon.class);
+		for (Beacon beacon : beaconsTriggersAndAssociations.beacons) {
+			beacon.normalizeUuid();
+		}
 		beaconsTriggersAndAssociations.triggers = getTriggersDB().getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
 				.getDocsAs(Trigger.class);
 		beaconsTriggersAndAssociations.beaconTriggerAssociations = getAssociationsDB().getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
 				.getDocsAs(BeaconTriggerAssociation.class);
+		for (BeaconTriggerAssociation beaconTriggerAssociation : beaconsTriggersAndAssociations.beaconTriggerAssociations) {
+			beaconTriggerAssociation.normalizeUuid();
+		}
 		return Response.ok(beaconsTriggersAndAssociations).build();
 	}
 
