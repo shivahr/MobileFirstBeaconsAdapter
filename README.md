@@ -1,17 +1,18 @@
-* Log-in to Bluemix
+- Log-in to Bluemix
 
-Create Cloudant 
-* Click on Catalog
-* Search for and select Cloudant NoSQL DB
-* Click on Create
-* Click on Launch to open Cloudant Dashboard
+# Create Cloudant service on Bluemix
+- Click on *Catalog*
+- Search for and select *Cloudant NoSQL DB*
+- Click on *Create*
+- Click on *Launch* to open Cloudant Dashboard
 
-* Click on Databases
-* Click on Create Database
-* Name it beacons
+# Create database for storing beacon data
+- Click on *Databases*
+- Click on *Create Database*
+- Name it **beacons**
 
-* Click on + icon and select New Doc
-* Add following data corresponding to beacon-1 after _id 
+- Click on *+* icon and select *New Doc*
+- Add following data corresponding to beacon-1 after *_id*
 ```
   , "uuid": "F75D6DF0-9B95-9EF1-A1BA-AE2765DE0987",
   "major": 57388,
@@ -20,11 +21,11 @@ Create Cloudant
    "branchName": "Indiranagar, Bangalore"
   }
 ```
-* Change UUID, major and minor numbers to correspond to your beacon
-* Click on Create document
+- Change UUID, major and minor numbers to correspond to your beacon
+- Click on *Create document*
 
-* Click on + icon
-* Add following data corresponding to beacon-2 after _id
+- Click on *+* icon
+- Add following data corresponding to beacon-2 after *_id*
 ```
   , "uuid": "F75D6DF0-9B95-9EF1-A1BA-AE2765DE0987",
   "major": 56179,
@@ -33,17 +34,17 @@ Create Cloudant
    "branchName": "Koramangala, Bangalore"
    }
 ```
-* Change UUID, major and minor numbers to correspond to your beacon
-* Click on Create document
+- Change UUID, major and minor numbers to correspond to your beacon
+- Click on *Create document*
 
 
+# Create database for storing trigger information
+- Click on *Databases*
+- Click on *Create Database*
+- Name it **triggers**
 
-* Click on Databases
-* Click on Create Database
-* Name it triggers
-
-* Click on + icon and select New Doc
-* Add following data corresponding to trigger-1 after _id 
+- Click on *+* icon and select *New Doc*
+- Add following data corresponding to trigger-1 after *_id*
 ```
   , "triggerName": "entryIntoBranch",
   "triggerType": "Enter",
@@ -52,11 +53,11 @@ Create Cloudant
    "alert": "Welcome to $branchName branch of IMF Bank"
   }
 ```
-* Change triggerName, triggerType, proximityState and alert to suit your needs
-* Click on Create document
+- Change triggerName, triggerType, proximityState and alert to suit your needs
+- Click on *Create document*
 
-* Click on + icon
-* Add following data corresponding to trigger-2 after _id
+- Click on *+* icon
+- Add following data corresponding to trigger-2 after *_id*
 ```
   , "triggerName": "exitFromBranch",
   "triggerType": "Exit",
@@ -65,6 +66,6 @@ Create Cloudant
    "alert": "Thank you for visiting our $branchName branch. Have a nice day!"
   }
 ```
-* Change triggerName, triggerType, proximityState and alert to suit your needs
-* Click on Create document
+- Change triggerName, triggerType, proximityState and alert to suit your needs
+- Click on *Create document*
 
