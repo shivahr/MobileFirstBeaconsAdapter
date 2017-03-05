@@ -21,7 +21,7 @@
 		<!-- MobileFirst adapter deployment properties -->
 		<mfpfUrl>https://mobilefoundation-4h-xt-server.mybluemix.net:443</mfpfUrl>
 		<mfpfUser>admin</mfpfUser>
-		<mfpfPassword>Brun0B0uk0</mfpfPassword>
+		<mfpfPassword>your-password-goes-here</mfpfPassword>
 		<mfpfRuntime>mfp</mfpfRuntime>
 	</properties>
 
