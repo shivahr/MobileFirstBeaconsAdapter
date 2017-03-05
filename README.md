@@ -140,7 +140,7 @@
 
 Click on Launch Console
  - Login with username as *admin* and the password you have specified before
- - Note down the server URL (just the domain - upto mybluemix.net)
+ - Note down the server URL (just the domain - like mobilefoundation-4w-server.eu-gb.mybluemix.net)
 
 ## Install mfpdev cli
 While the server is being started (normally it takes around 10mins to start the server), install mfpdev cli (command line for working with Mobile Foundation (a.k.a. Mobile First Platform) on your local machine as follows:
