@@ -126,3 +126,30 @@
 - Change uuid, major & minor numbers and triggerName to suit your needs
 - Click on *Create document*
 
+
+# Create Mobile Foundation service on Bluemix
+**Mobile Foundation** is the mobile backend for your mobile app
+- Click on *Catalog*
+- Search for and select *Mobile Foundation*
+- Click on *Create*
+- Click on *Settings*
+- Click on *Security* tab
+- Specify the *Console Login Password* (user-id would be admin)
+- Click on *Next*
+- Click on *Start Advanced Server* to create Mobile backend server
+
+Click on Launch Console
+ - Login with username as *admin* and the password you have specified before
+ - Note down the server URL (just the domain - upto mybluemix.net)
+
+## Install mfpdev cli
+While the server is being started (normally it takes around 10mins to start the server), install mfpdev cli (command line for working with Mobile Foundation (a.k.a. Mobile First Platform) on your local machine as follows:
+```
+npm install -g mfpdev-cli
+```
+
+Verify installation 
+```
+mfpdev --version
+```
+It should be `8.0.0-*`
