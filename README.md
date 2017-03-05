@@ -191,9 +191,9 @@ $ cd MobileFirstBeaconsAdapter
   - Open Bluemix console and go the list of all services
   - Click on *Cloudant NoSQL DB-* service
   - Click on *Service Credentials* tab and click on *View Credentials*
-  - Copy value for *host* to property name *account* in adapter.xml under defaultValue
-  - Copy value for *username* to property name *key* in adapter.xml under defaultValue
-  - Copy value for *password* to property name *password* in adapter.xml under defaultValue
+  - Copy value for *username* from above to property name *account* in adapter.xml under defaultValue
+  - Copy value for *username* from above to property name *key* in adapter.xml under defaultValue
+  - Copy value for *password* from above to property name *password* in adapter.xml under defaultValue
 
 ## Build adapter
 Adapter build uses maven & Java for compiling. If not already installed, install Java and Maven before proceeding further.
