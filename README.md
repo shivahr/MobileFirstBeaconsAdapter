@@ -6,12 +6,12 @@
 - Click on *Create*
 - Click on *Launch* to open Cloudant Dashboard
 
-# Create database for storing beacon data
+## Create database for storing beacon data
 - Click on *Databases*
 - Click on *Create Database*
 - Name it **beacons**
 
-- Click on *+* icon and select *New Doc*
+- Click on + icon and select *New Doc*
 - Add following data corresponding to beacon-1 after *_id*
 ```
   , "uuid": "F75D6DF0-9B95-9EF1-A1BA-AE2765DE0987",
@@ -24,7 +24,7 @@
 - Change UUID, major and minor numbers to correspond to your beacon
 - Click on *Create document*
 
-- Click on *+* icon
+- Click on + icon
 - Add following data corresponding to beacon-2 after *_id*
 ```
   , "uuid": "F75D6DF0-9B95-9EF1-A1BA-AE2765DE0987",
@@ -38,12 +38,12 @@
 - Click on *Create document*
 
 
-# Create database for storing trigger information
+## Create database for storing trigger information
 - Click on *Databases*
 - Click on *Create Database*
 - Name it **triggers**
 
-- Click on *+* icon and select *New Doc*
+- Click on + icon and select *New Doc*
 - Add following data corresponding to trigger-1 after *_id*
 ```
   , "triggerName": "entryIntoBranch",
@@ -56,7 +56,7 @@
 - Change triggerName, triggerType, proximityState and alert to suit your needs
 - Click on *Create document*
 
-- Click on *+* icon
+- Click on + icon
 - Add following data corresponding to trigger-2 after *_id*
 ```
   , "triggerName": "exitFromBranch",
@@ -67,5 +67,32 @@
   }
 ```
 - Change triggerName, triggerType, proximityState and alert to suit your needs
+- Click on *Create document*
+
+## Create database for storing mapping between beacons and triggers
+- Click on *Databases*
+- Click on *Create Database*
+- Name it **beacon-trigger-associations**
+
+- Click on + icon and select *New Doc*
+- Add following data corresponding to mapping between beacon-1 and trigger-1 after *_id*
+```
+  , "uuid": "F75D6DF0-9B95-9EF1-A1BA-AE2765DE0987",
+  "major": 57388,
+  "minor": 50057,
+  "triggerName": "entryIntoBranch"
+```
+- Change uuid, major, minor numbers and triggerName to suit your needs
+- Click on *Create document*
+
+- Click on + icon
+- Add following data corresponding to mapping between beacon-1 and trigger-2 after *_id*
+```
+  , "uuid": "F75D6DF0-9B95-9EF1-A1BA-AE2765DE0987",
+  "major": 57388,
+  "minor": 50057,
+  "triggerName": "exitFromBranch"
+```
+- Change uuid, major, minor numbers and triggerName to suit your needs
 - Click on *Create document*
 
